@@ -1,0 +1,25 @@
+# Node modules
+backend/node_modules/
+frontend/node_modules/
+
+# Entornos y secretos
+backend/.env
+frontend/.env
+
+# Archivos de logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Builds (en caso de que hagas uno en frontend)
+frontend/dist/
+
+# Otros temporales
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
