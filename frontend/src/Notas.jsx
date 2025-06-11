@@ -1,8 +1,8 @@
-import { useeffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Notas() {
-    const [notas, setNotas] = useSate([]);
+    const [notas, setNotas] = useState([]);
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
