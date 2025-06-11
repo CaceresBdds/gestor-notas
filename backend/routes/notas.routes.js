@@ -34,8 +34,9 @@ router.put('/:id', async (req, res) => {
         nota.contenido = contenido;
         await nota.save();
 
-        res.json.save(nota);
+        res.json(nota);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Error al actualizar la nota' });
     }
 });
