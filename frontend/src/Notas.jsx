@@ -23,28 +23,40 @@ function Notas() {
     setNotas([...notas, nuevaNota]);
   };
 
-
+  const eliminarNota = (id) => {
+    axios
+      .delete(`http://localhost:3001/api/notas/${id}`)
+      .then(() => {
+        setNotas(notas.filter((nota) => nota.id !== id));
+      })
+      .catch((error) => {
+        console.error("Error al eliminar la nota:", error);
+      });
+  };
 
   return (
- <div>
-            <FormularioNota onNotaAgregada={agregarNota} />
+    <div>
+      <FormularioNota onNotaAgregada={agregarNota} />
 
-            <h2>Notas</h2>
-            {cargando ? (
-                <p>Cargando notas...</p>
-            ) : notas.length === 0 ? (
-                <p>No hay notas disponibles.</p>
-            ) : (
-                <ul>
-                    {notas.map((nota) => (
-                        <li key={nota.id}>
-                            <strong>{nota.titulo}</strong>
-                            <p>{nota.contenido}</p>
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
+      <h2>Notas</h2>
+      {cargando ? (
+        <p>Cargando notas...</p>
+      ) : notas.length === 0 ? (
+        <p>No hay notas disponibles.</p>
+      ) : (
+        <ul>
+          {notas.map((nota) => (
+            <li key={nota.id}>
+              <strong>{nota.titulo}</strong>
+              <p>{nota.contenido}</p>
+              <button onClick={() => eliminarNota(nota.id)}>
+                Eliminar
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 
