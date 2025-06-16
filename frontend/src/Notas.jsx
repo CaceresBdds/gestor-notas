@@ -77,10 +77,10 @@ function Notas() {
                         <li key={nota.id}>
                             <strong>{nota.titulo}</strong>
                             <p>{nota.contenido}</p>
-                            <button onClick={() => manejarEdicion(nota)}>
+                            <button className='editar' onClick={() => manejarEdicion(nota)}>
                                 Editar
                             </button>
-                            <button onClick={() => eliminarNota(nota.id)}>
+                            <button className='eliminar' onClick={() => eliminarNota(nota.id)}>
                                 Eliminar
                             </button>
                         </li>
